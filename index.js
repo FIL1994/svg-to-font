@@ -14,6 +14,8 @@ async function createFont(
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
   const ttf = svg2ttf(fs.readFileSync(`${dir}/font.svg`, "utf8"), {});
+  fs.unlink("fonts.svg");
+
   if (writeFile) fs.writeFileSync("fonts/myfont.ttf", Buffer.from(ttf.buffer));
   return Buffer.from(ttf.buffer);
 }

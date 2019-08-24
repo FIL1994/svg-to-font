@@ -10,7 +10,7 @@ function generateSvgFont(dir = "fonts", fontName = "myfont") {
     });
 
     fontStream
-      .pipe(fs.createWriteStream(`fonts/font.svg`))
+      .pipe(fs.createWriteStream(`font.svg`))
       .on("finish", () => resolve())
       .on("error", err => reject(err));
 
