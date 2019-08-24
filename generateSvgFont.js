@@ -1,7 +1,7 @@
 const SVGIcons2SVGFontStream = require("svgicons2svgfont");
 const fs = require("fs");
 
-function generateSvgFont(fontName = "myfont") {
+function generateSvgFont(dir = "fonts", fontName = "myfont") {
   return new Promise((resolve, reject) => {
     const fontStream = new SVGIcons2SVGFontStream({
       fontName,
@@ -10,14 +10,14 @@ function generateSvgFont(fontName = "myfont") {
     });
 
     fontStream
-      .pipe(fs.createWriteStream("fonts/font.svg"))
+      .pipe(fs.createWriteStream(`fonts/font.svg`))
       .on("finish", () => resolve())
       .on("error", err => reject(err));
 
-    fs.readdirSync(`${__dirname}/icons`)
+    fs.readdirSync(dir)
       .filter(i => i.endsWith(".svg"))
       .forEach((file, index) => {
-        const glyph = fs.createReadStream(`${__dirname}/icons/${file}`);
+        const glyph = fs.createReadStream(`${dir}/${file}`);
         glyph.metadata = {
           unicode: [String.fromCharCode(parseInt("EA01", 16) + index)],
           name: file

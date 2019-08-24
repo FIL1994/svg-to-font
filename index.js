@@ -6,7 +6,7 @@ async function createFont(
   fontName = "myfont",
   writeFile = false
 ) {
-  await generateSvgFont(fontName);
+  await generateSvgFont(dir, fontName);
 
   const svg2ttf = require("svg2ttf");
 
