@@ -1,7 +1,7 @@
 {
-  "name": "svg-to-font",
-  "version": "0.1.0",
-  "description": "",
+  "name": "@fil1994/svg-to-font",
+  "version": "0.1.1",
+  "description": "converts svg files to a ttf font",
   "main": "index.js",
   "scripts": {
     "build": "node index.js"
@@ -10,7 +10,10 @@
     "index.js",
     "generateSvgFont.js"
   ],
-  "keywords": [],
+  "keywords": [
+    "svg",
+    "font"
+  ],
   "author": "Philip Van Raalte",
   "license": "MIT",
   "devDependencies": {
