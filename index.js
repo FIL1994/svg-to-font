@@ -14,19 +14,10 @@ async function createFont(
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
   const ttf = svg2ttf(fs.readFileSync(`font.svg`, "utf8"), {});
-  fs.unlink("fonts.svg");
+  fs.unlink("fonts.svg", () => {});
 
-  if (writeFile) fs.writeFileSync("fonts/myfont.ttf", Buffer.from(ttf.buffer));
+  if (writeFile) fs.writeFileSync("myfont.ttf", Buffer.from(ttf.buffer));
   return Buffer.from(ttf.buffer);
 }
-
-// async function run() {
-//   const font = await createFont("fonts", "myfont");
-
-//   const base64Font = font.toString("base64");
-//   console.log(base64Font.length);
-// }
-
-// run();
 
 module.exports = createFont;

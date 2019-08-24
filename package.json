@@ -1,6 +1,6 @@
 {
   "name": "@fil1994/svg-to-font",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "converts svg files to a ttf font",
   "main": "index.js",
   "scripts": {
