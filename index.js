@@ -1,18 +1,30 @@
+const fs = require("fs");
 const generateSvgFont = require("./generateSvgFont");
 
-async function run() {
-  await generateSvgFont();
+async function createFont(
+  dir = "fonts",
+  fontName = "myfont",
+  writeFile = false
+) {
+  await generateSvgFont(fontName);
 
-  const fs = require("fs");
   const svg2ttf = require("svg2ttf");
 
-  if (!fs.existsSync("icons")) fs.mkdirSync("fonts");
-  if (!fs.existsSync("fonts")) fs.mkdirSync("fonts");
+  if (!fs.existsSync("icons")) fs.mkdirSync("icons");
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
-  const ttf = svg2ttf(fs.readFileSync("fonts/hello.svg", "utf8"), {});
-  fs.writeFileSync("fonts/myfont.ttf", Buffer.from(ttf.buffer));
-
-  const base64Font = fs.readFileSync(`fonts/myfont.ttf`).toString("base64");
+  const ttf = svg2ttf(fs.readFileSync(`${dir}/font.svg`, "utf8"), {});
+  if (writeFile) fs.writeFileSync("fonts/myfont.ttf", Buffer.from(ttf.buffer));
+  return Buffer.from(ttf.buffer);
 }
 
-run();
+// async function run() {
+//   const font = await createFont("fonts", "myfont");
+
+//   const base64Font = font.toString("base64");
+//   console.log(base64Font.length);
+// }
+
+// run();
+
+module.exports = createFont;

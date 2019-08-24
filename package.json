@@ -1,11 +1,15 @@
 {
   "name": "svg-to-font",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "node index.js"
   },
+  "files": [
+    "index.js",
+    "generateSvgFont.js"
+  ],
   "keywords": [],
   "author": "Philip Van Raalte",
   "license": "MIT",
