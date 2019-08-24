@@ -7,7 +7,12 @@ async function run() {
   const svg2ttf = require("svg2ttf");
 
   const ttf = svg2ttf(fs.readFileSync("fonts/hello.svg", "utf8"), {});
-  fs.writeFileSync("fonts/myfont.ttf", new Buffer(ttf.buffer));
+  fs.writeFileSync("fonts/myfont.ttf", Buffer.from(ttf.buffer));
+
+  const base64Font = fs.readFileSync(`fonts/myfont.ttf`).toString("base64");
+
+  console.log(base64Font);
+  console.log(base64Font.length);
 }
 
 run();
