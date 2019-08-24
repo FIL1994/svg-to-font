@@ -1,0 +1,16 @@
+{
+  "name": "svg-to-font",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "svg2ttf": "^4.3.0",
+    "svgicons2svgfont": "^9.1.1"
+  }
+}
