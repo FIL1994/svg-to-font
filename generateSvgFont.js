@@ -30,11 +30,18 @@ function generateSvgFont(dir = "fonts", fontName = "myfont") {
       .map(i => getUnicodeAndName(i)[0])
       .find(u => u !== null);
 
+    let filesToWrite = [];
+
     icons.reverse().forEach((file, index) => {
       let [unicode, name] = getUnicodeAndName(file);
       if (unicode === null) {
         unicode = (parseInt(lastUnicode, 16) + 1).toString(16);
         lastUnicode = unicode;
+
+        filesToWrite.push({
+          file,
+          unicode
+        });
       }
 
       const glyph = fs.createReadStream(`${dir}/${file}`);
@@ -46,6 +53,13 @@ function generateSvgFont(dir = "fonts", fontName = "myfont") {
     });
 
     fontStream.end();
+
+    filesToWrite.forEach(({ file, unicode }) => {
+      fs.renameSync(
+        `${dir}/${file}`,
+        `${dir}/u${unicode.toUpperCase()}-${file}`
+      );
+    });
   });
 }
 

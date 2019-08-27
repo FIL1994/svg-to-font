@@ -15,7 +15,6 @@ async function createFont(
   const ttf = svg2ttf(fs.readFileSync(`font.svg`, "utf8"), {});
   fs.unlink("fonts.svg", () => {});
 
-  console.log("writefile", writeFile)
   if (writeFile)
     fs.writeFileSync(`${__dirname}/myfont.ttf`, Buffer.from(ttf.buffer));
   return Buffer.from(ttf.buffer);
