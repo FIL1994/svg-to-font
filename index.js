@@ -10,13 +10,13 @@ async function createFont(
 
   const svg2ttf = require("svg2ttf");
 
-  if (!fs.existsSync("icons")) fs.mkdirSync("icons");
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
   const ttf = svg2ttf(fs.readFileSync(`font.svg`, "utf8"), {});
   fs.unlink("fonts.svg", () => {});
 
-  if (writeFile) fs.writeFileSync("myfont.ttf", Buffer.from(ttf.buffer));
+  if (writeFile)
+    fs.writeFileSync(`${__dirname}/myfont.ttf`, Buffer.from(ttf.buffer));
   return Buffer.from(ttf.buffer);
 }
 

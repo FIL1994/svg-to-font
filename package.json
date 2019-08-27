@@ -3,7 +3,9 @@
   "version": "1.0.1",
   "description": "converts svg files to a ttf font",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "node index.test.js"
+  },
   "files": [
     "index.js",
     "generateSvgFont.js"
@@ -17,5 +19,8 @@
   "dependencies": {
     "svg2ttf": "^4.3.0",
     "svgicons2svgfont": "^9.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.2"
   }
 }
