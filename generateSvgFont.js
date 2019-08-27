@@ -46,7 +46,7 @@ function generateSvgFont(dir = "fonts", fontName = "myfont") {
 
       const glyph = fs.createReadStream(`${dir}/${file}`);
       glyph.metadata = {
-        unicode: [String.fromCharCode(unicode, 16)],
+        unicode: [String.fromCharCode(parseInt(unicode), 16)],
         name
       };
       fontStream.write(glyph);
