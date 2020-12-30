@@ -3,6 +3,10 @@
   "version": "1.1.2",
   "description": "converts svg files to a ttf font",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FIL1994/svg-to-font.git"
+  },
   "scripts": {
     "test": "node index.test.js"
   },
