@@ -21,7 +21,7 @@
   "author": "Philip Van Raalte",
   "license": "MIT",
   "dependencies": {
-    "svg2ttf": "^4.3.0",
+    "svg2ttf": "^6.0.3",
     "svgicons2svgfont": "^9.1.1"
   },
   "devDependencies": {
